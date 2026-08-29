@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Coach AI - Trilhas</title>
+  <link rel="stylesheet" href="https://unpkg.com/chessground/assets/chessground.base.css">
+  <link rel="stylesheet" href="https://unpkg.com/chessground/assets/chessground.brown.css">
+  <link rel="stylesheet" href="https://unpkg.com/chessground/assets/chessground.cburnett.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div id="board" class="blue merida"></div>
+
+    <div class="coach-panel">
+      <h2>Trilhas Pedagógicas</h2>
+      
+      <div class="setup-controls">
+        <div class="control-group">
+          <label>Módulo:</label>
+          <select id="mode-select">
+            <option value="free">Partida Livre (Padrão)</option>
+            <option value="survival_1">Sobrevivência: Ataque Feroz</option>
+            <option value="endgame_1">Final: O Rei e o Peão</option>
+          </select>
+        </div>
+        <div class="control-group" id="color-group">
+          <label>Jogar de:</label>
+          <select id="color-select">
+            <option value="w">Brancas</option>
+            <option value="b">Pretas</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Nível do Bot:</label>
+          <select id="difficulty-select">
+            <option value="1">Iniciante</option>
+            <option value="5" selected>Amador</option>
+            <option value="10">Avançado</option>
+            <option value="15">Mestre</option>
+          </select>
+        </div>
+        
+        <div class="action-buttons">
+          <button id="start-btn">Iniciar Módulo</button>
+          <button id="undo-btn" class="btn-secondary" disabled>Desfazer</button>
+        </div>
+
+        <div class="history-controls">
+          <button id="nav-first" title="Início">|&lt;</button>
+          <button id="nav-prev" title="Voltar Lance">&lt;</button>
+          <button id="nav-next" title="Avançar Lance">&gt;</button>
+          <button id="nav-last" title="Atual">&gt;|</button>
+        </div>
+      </div>
+
+      <!-- Novo Painel de Objetivos do Cenário -->
+      <div id="objective-panel" class="objective-box" style="display: none;">
+        <strong>🎯 Missão:</strong> <span id="objective-text"></span>
+        <div id="objective-progress">Progresso: 0 / 20 lances</div>
+      </div>
+
+      <div id="eval-bar">Vantagem Brancas: <span id="eval-score">0.0</span></div>
+      
+      <div id="feedback" class="feedback-box info">
+        Selecione uma trilha pedagógica e clique em Iniciar Módulo.
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
